@@ -111,94 +111,124 @@ Future<void> _showFilterDialog(BuildContext context) async {
         ),
       ),
 
-      body: Column(children: [
-        Container(
-          width: 339,
-          height: 50,
-          margin: EdgeInsets.only(left: 10, top: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8), // Rounded corners
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 4,
-                offset: const Offset(0, 2),
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              const Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(5.0),
-                  child: TextField(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(children: [
+          Container(
+            width: 339,
+            height: 50,
+            margin: EdgeInsets.only(left: 10, top: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8), // Rounded corners
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                const Flexible(
+                  child: Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: TextField(
 
-                    decoration: InputDecoration(
-                      hintText: 'Search for UPSC Coaching',
-                      border: InputBorder.none,
+                      decoration: InputDecoration(
+                        hintText: 'Search for UPSC Coaching',
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              IconButton(
-                onPressed: () {
-                },
-                icon: const Icon(Icons.search, color: Colors.grey),
-              ),
-              IconButton(
-                onPressed: () {
-                },
-                icon: const Icon(Icons.mic, color: Color(0xff7D23E0)),
-              ),
-            ],
-          ),
-        )       ,
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  _showFilterDialog(context);
-                },
-                child: Container(
-                  width: 79,
-                  height: 29,
-                  margin: const EdgeInsets.only(left: 24, top: 20),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14.5), // Half of the height to create rounded corners
-                    border: Border.all(
-                      width: 2,
-                      color: const Color(0xff7D23E0),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Filters',
-                        style: TextStyle(fontSize: 15),
+                IconButton(
+                  onPressed: () {
+                  },
+                  icon: const Icon(Icons.search, color: Colors.grey),
+                ),
+                IconButton(
+                  onPressed: () {
+                  },
+                  icon: const Icon(Icons.mic, color: Color(0xff7D23E0)),
+                ),
+              ],
+            ),
+          )       ,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    _showFilterDialog(context);
+                  },
+                  child: Container(
+                    width: 79,
+                    height: 29,
+                    margin: const EdgeInsets.only(left: 24, top: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14.5), // Half of the height to create rounded corners
+                      border: Border.all(
+                        width: 2,
+                        color: const Color(0xff7D23E0),
                       ),
-                       Container(
-                        width: 17,
-                        height: 17,
-                        child: Image.asset(
-                          'assets/icons/filter.png',
-                          fit: BoxFit.cover, // Use BoxFit.cover to fill the container size
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Filters',
+                          style: TextStyle(fontSize: 15),
                         ),
-                      ),
-                    ],
+                         Container(
+                          width: 17,
+                          height: 17,
+                          child: Image.asset(
+                            'assets/icons/filter.png',
+                            fit: BoxFit.cover, // Use BoxFit.cover to fill the container size
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _showFilterDialog(context);
+                GestureDetector(
+                  onTap: () {
+                    _showFilterDialog(context);
 
-                },
-                child: Container(
+                  },
+                  child: Container(
+                    width: 79,
+                    height: 29,
+                    margin: const EdgeInsets.only(left: 24, top: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14.5),
+                      border: Border.all(
+                        width: 2,
+                        color: const Color(0xff7D23E0),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Sort',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        Container(
+                            width: 17,
+                            height: 17,
+                            child: const Icon(Icons.keyboard_arrow_down_outlined)
+
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   width: 79,
                   height: 29,
                   margin: const EdgeInsets.only(left: 24, top: 20),
@@ -211,76 +241,49 @@ Future<void> _showFilterDialog(BuildContext context) async {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Sort',
+                    children: const [
+                      Text(
+                        '<2KM',
                         style: TextStyle(fontSize: 15),
                       ),
-                      Container(
-                          width: 17,
-                          height: 17,
-                          child: const Icon(Icons.keyboard_arrow_down_outlined)
 
-                      ),
                     ],
                   ),
                 ),
-              ),
-              Container(
-                width: 79,
-                height: 29,
-                margin: const EdgeInsets.only(left: 24, top: 20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14.5),
-                  border: Border.all(
-                    width: 2,
-                    color: const Color(0xff7D23E0),
+                Container(
+                  width: 79,
+                  height: 29,
+                  margin: const EdgeInsets.only(left: 24, top: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14.5),
+                    border: Border.all(
+                      width: 2,
+                      color: Color(0xff7D23E0),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        'JEE',
+                        style: TextStyle(fontSize: 15),
+                      ),
+
+                    ],
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      '<2KM',
-                      style: TextStyle(fontSize: 15),
-                    ),
-
-                  ],
-                ),
-              ),
-              Container(
-                width: 79,
-                height: 29,
-                margin: const EdgeInsets.only(left: 24, top: 20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14.5),
-                  border: Border.all(
-                    width: 2,
-                    color: Color(0xff7D23E0),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'JEE',
-                      style: TextStyle(fontSize: 15),
-                    ),
-
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        const SizedBox(height: 15,),
-               //child:
-               SizedBox(
-                  width: 400,
-                  height:450,
-                  child: DummyDataList(data: data)),
+          const SizedBox(height: 15,),
+                 //child:
+                 SizedBox(
+                    width: 400,
+                    height:450,
+                    child: DummyDataList(data: data)),
 
-      ],),
+        ],),
+      ),
       bottomNavigationBar: const BottomNav(),
     );
   }

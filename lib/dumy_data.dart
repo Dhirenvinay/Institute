@@ -6,12 +6,7 @@ class DummyData {
   final double rating;
   final double distance;
   final List<String> subjects;
-  //
-  // List<String> getShuffledAnswer() {
-  //   final shuffledList = List.of(subjects);
-  //   shuffledList.shuffle();
-  //   return shuffledList;
-  // }
+
 }
 
 
